@@ -1,0 +1,200 @@
+{
+  "scopeName": "source.nitrogen",
+  "name": "Nitrogen",
+  "comment": "Nitrogen language",
+  "fileTypes": [
+    "ni"
+  ],
+  "foldingStartMarker": "({|\\()\\s*$",
+  "foldingStopMarker": "(}|\\))\\s*$",
+  "patterns": [
+    {
+      "comment": "Block comment",
+      "begin": "/\\*",
+      "end": "\\*/",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.comment.nitrogen"
+        }
+      },
+      "name": "comment.block.nitrogen"
+    },
+    {
+      "comment": "Single line, double-slash comment",
+      "begin": "//",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.nitrogen"
+        }
+      },
+      "end": "$",
+      "name": "comment.line.double-slash.nitrogen"
+    },
+    {
+      "comment": "Single line, number-sign comment",
+      "begin": "#",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.nitrogen"
+        }
+      },
+      "end": "$",
+      "name": "comment.line.number-sign.nitrogen"
+    },
+    {
+      "comment": "Number literal",
+      "match": "\\b([0-9]+\\.?[0-9]*)\\b",
+      "name": "constant.numeric.nitrogen"
+    },
+    {
+      "comment": "Double quoted string literal",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.nitrogen"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.nitrogen"
+        }
+      },
+      "name": "string.quoted.double.nitrogen"
+    },
+    {
+      "comment": "Functions",
+      "match": "(\\bfunc\\b)|([a-zA-Z_]\\w*)(?=\\()",
+      "captures": {
+        "1": {
+          "name": "keyword.function.go"
+        },
+        "2": {
+          "name": "support.function.go"
+        }
+      }
+    },
+    {
+      "comment": "Language constants",
+      "match": "\\b(true|false|nil)\\b",
+      "name": "constant.language.nitrogen"
+    },
+    {
+      "comment": "Variable definition",
+      "match": "(def)\\s([a-zA-Z_]+)\\b",
+      "captures": {
+        "0": {
+          "name": "keyword.var.nitrogen"
+        },
+        "1": {
+          "name": "variable.other.assignment.nitrogen"
+        }
+      }
+    },
+    {
+      "comment": "Terminators",
+      "match": ";",
+      "name": "punctuation.terminator.nitrogen"
+    },
+    {
+      "include": "#brackets"
+    },
+    {
+      "include": "#delimiters"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "brackets": {
+      "patterns": [
+        {
+          "match": "\\{|\\}",
+          "name": "punctuation.other.bracket.curly.nitrogen"
+        },
+        {
+          "match": "\\(|\\)",
+          "name": "punctuation.other.bracket.round.nitrogen"
+        },
+        {
+          "match": "\\[|\\]",
+          "name": "punctuation.other.bracket.square.nitrogen"
+        }
+      ]
+    },
+    "delimiters": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.other.comma.nitrogen"
+        },
+        {
+          "match": "\\.(?!\\.\\.)",
+          "name": "punctuation.other.period.nitrogen"
+        },
+        {
+          "match": ":(?!=)",
+          "name": "punctuation.other.colon.nitrogen"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "comment": "Flow control keywords",
+          "match": "\\b(else|if|return)\\b",
+          "name": "keyword.control.nitrogen"
+        },
+        {
+          "match": "\\bconst\\b",
+          "name": "keyword.const.nitrogen"
+        },
+        {
+          "match": "\\bfunc\\b",
+          "name": "keyword.function.nitrogen"
+        },
+        {
+          "match": "\\bdef\\b",
+          "name": "keyword.var.nitrogen"
+        }
+      ]
+    },
+    "operators": {
+      "comment": "Note that the order here is very important!",
+      "patterns": [
+        {
+          "match": "\\-\\-",
+          "name": "keyword.operator.decrement.nitrogen"
+        },
+        {
+          "match": "\\+\\+",
+          "name": "keyword.operator.increment.nitrogen"
+        },
+        {
+          "match": "(==|!=|<=|>=|<[^<]|>[^>])",
+          "name": "keyword.operator.comparison.nitrogen"
+        },
+        {
+          "match": "(&&|\\|\\||!)",
+          "name": "keyword.operator.logical.nitrogen"
+        },
+        {
+          "match": "(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+          "name": "keyword.operator.assignment.nitrogen"
+        },
+        {
+          "match": "(\\+|\\-|\\*|/|%)",
+          "name": "keyword.operator.arithmetic.nitrogen"
+        },
+        {
+          "match": "(&(?!\\^)|\\||\\^|&\\^|<<|>>)",
+          "name": "keyword.operator.arithmetic.bitwise.nitrogen"
+        }
+      ]
+    }
+  }
+}
