@@ -1,27 +1,36 @@
 {
-  "name": "Nitrogen Language Support",
-  "version": "0.1.0",
-	"publisher": "lfkeitel",
+  "name": "language-nitrogen",
+  "displayName": "Nitrogen Language Support",
+  "version": "0.0.0",
+  "publisher": "lfkeitel",
   "description": "Nitrogen language support in VSCode",
   "engines": {
     "vscode": "*"
   },
   "categories": [
-      "Languages"
+    "Languages"
   ],
   "contributes": {
-		"languages": [{
-				"id": "nitrogen",
-				"extensions": [".ni"],
-				"aliases": ["nitrogen"],
-				"configuration": "./nitrogen-configuration.json"
-		}],
-		"grammars": [{
-				"language": "nitrogen",
-				"scopeName": "source.nitrogen",
-				"path": "./syntaxes/nitrogen.tmLanguage"
-		}]
-	},
+    "languages": [
+      {
+        "id": "nitrogen",
+        "extensions": [
+          ".ni"
+        ],
+        "aliases": [
+          "nitrogen"
+        ],
+        "configuration": "./nitrogen-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nitrogen",
+        "scopeName": "source.nitrogen",
+        "path": "./syntaxes/nitrogen.tmLanguage"
+      }
+    ]
+  },
   "dependencies": {},
   "repository": {
     "type": "git",
