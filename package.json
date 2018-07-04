@@ -1,14 +1,14 @@
 {
 	"name": "language-nitrogen",
 	"displayName": "Nitrogen Language Support",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"publisher": "lfkeitel",
 	"description": "Nitrogen language support in VSCode",
 	"engines": {
 		"vscode": "*"
 	},
 	"categories": [
-		"Languages"
+		"Programming Languages"
 	],
 	"contributes": {
 		"languages": [

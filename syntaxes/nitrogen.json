@@ -49,7 +49,12 @@
           "name": "punctuation.definition.string.end.nitrogen"
         }
       },
-      "name": "string.quoted.double.nitrogen"
+      "name": "string.quoted.double.nitrogen",
+      "patterns": [
+        {
+          "include": "#string-interp"
+        }
+      ]
     },
     {
       "comment": "Single quoted string literal",
@@ -85,23 +90,6 @@
       "name": "constant.language.nitrogen"
     },
     {
-      "comment": "Variable definition",
-      "match": "(let)\\s([a-zA-Z_]+)\\b",
-      "captures": {
-        "1": {
-          "name": "keyword.var.nitrogen"
-        },
-        "2": {
-          "name": "variable.other.assignment.nitrogen"
-        }
-      }
-    },
-    {
-      "comment": "Terminators",
-      "match": ";",
-      "name": "punctuation.terminator.nitrogen"
-    },
-    {
       "include": "#brackets"
     },
     {
@@ -119,31 +107,47 @@
       "patterns": [
         {
           "match": "\\{|\\}",
-          "name": "punctuation.other.bracket.curly.nitrogen"
+          "name": "punctuation.bracket.curly.nitrogen"
         },
         {
           "match": "\\(|\\)",
-          "name": "punctuation.other.bracket.round.nitrogen"
+          "name": "punctuation.bracket.round.nitrogen"
         },
         {
           "match": "\\[|\\]",
-          "name": "punctuation.other.bracket.square.nitrogen"
+          "name": "punctuation.bracket.square.nitrogen"
+        }
+      ]
+    },
+    "string-interp": {
+      "patterns": [
+        {
+          "match": "\\\\[0bnrtvfe\"\\\\]",
+          "name": "constant.character.escape.nitrogen"
         }
       ]
     },
     "delimiters": {
       "patterns": [
         {
+          "match": "\\^",
+          "name": "punctuation.carrot.nitrogen"
+        },
+        {
           "match": ",",
-          "name": "punctuation.other.comma.nitrogen"
+          "name": "punctuation.comma.nitrogen"
         },
         {
-          "match": "\\.(?!\\.\\.)",
-          "name": "punctuation.other.period.nitrogen"
+          "match": "\\.",
+          "name": "punctuation.period.nitrogen"
         },
         {
-          "match": ":(?!=)",
-          "name": "punctuation.other.colon.nitrogen"
+          "match": ":",
+          "name": "punctuation.colon.nitrogen"
+        },
+        {
+          "match": ";",
+          "name": "punctuation.terminator.nitrogen"
         }
       ]
     },
@@ -151,11 +155,15 @@
       "patterns": [
         {
           "comment": "Flow control keywords",
-          "match": "\\b(if|else|for|return|break|continue)\\b",
+          "match": "\\b(if|else|for|return|break|continue|try|catch|throw|new|pass)\\b",
           "name": "keyword.control.nitrogen"
         },
         {
-          "match": "\\balways\\b",
+          "match": "\\b(import|use|as)\\b",
+          "name": "keyword.imports.nitrogen"
+        },
+        {
+          "match": "\\bconst\\b",
           "name": "keyword.const.nitrogen"
         },
         {
@@ -163,7 +171,11 @@
           "name": "keyword.function.nitrogen"
         },
         {
-          "match": "\\blet\\b",
+          "match": "\\bclass\\b",
+          "name": "keyword.declaration.nitrogen"
+        },
+        {
+          "match": "\\b(let|delete)\\b",
           "name": "keyword.var.nitrogen"
         }
       ]
@@ -171,10 +183,6 @@
     "operators": {
       "comment": "Note that the order here is very important!",
       "patterns": [
-        {
-          "match": "->",
-          "name": "keyword.operator.arrow.nitrogen"
-        },
         {
           "match": "\\-\\-",
           "name": "keyword.operator.decrement.nitrogen"
@@ -188,12 +196,20 @@
           "name": "keyword.operator.comparison.nitrogen"
         },
         {
-          "match": "(&&|\\|\\||!)",
+          "match": "\\b(and|or)\\b",
           "name": "keyword.operator.logical.nitrogen"
         },
         {
-          "match": "(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+          "match": "([^\\w]!)",
+          "name": "keyword.operator.logical.nitrogen"
+        },
+        {
+          "match": "(=)",
           "name": "keyword.operator.assignment.nitrogen"
+        },
+        {
+          "match": "(\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+          "name": "keyword.operator.assignment.arithmetic.nitrogen"
         },
         {
           "match": "(\\+|\\-|\\*|/|%)",
@@ -201,7 +217,7 @@
         },
         {
           "match": "(&(?!\\^)|\\||\\^|&\\^|<<|>>)",
-          "name": "keyword.operator.arithmetic.bitwise.nitrogen"
+          "name": "keyword.operator.bitwise.nitrogen"
         }
       ]
     }
