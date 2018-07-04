@@ -155,7 +155,7 @@
       "patterns": [
         {
           "comment": "Flow control keywords",
-          "match": "\\b(if|else|for|return|break|continue|try|catch|throw|new|pass)\\b",
+          "match": "\\b(if|elif|else|for|return|break|continue|try|catch|throw|new|pass)\\b",
           "name": "keyword.control.nitrogen"
         },
         {

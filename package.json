@@ -1,7 +1,7 @@
 {
 	"name": "language-nitrogen",
 	"displayName": "Nitrogen Language Support",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"publisher": "lfkeitel",
 	"description": "Nitrogen language support in VSCode",
 	"engines": {
