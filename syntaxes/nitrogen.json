@@ -74,7 +74,7 @@
     },
     {
       "comment": "Functions",
-      "match": "(\\bfunc\\b)|([a-zA-Z_]\\w*)(?=\\()",
+      "match": "(\\bfn\\b)|([a-zA-Z_]\\w*)(?=\\()",
       "captures": {
         "1": {
           "name": "keyword.function.go"
@@ -167,7 +167,7 @@
           "name": "keyword.const.nitrogen"
         },
         {
-          "match": "\\bfunc\\b",
+          "match": "\\b(fn|native)\\b",
           "name": "keyword.function.nitrogen"
         },
         {
